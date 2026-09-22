@@ -1,21 +1,21 @@
-# nform
+# mini-math
 
-*nform* is a lightweight symbolic computation engine written entirely in **Common Lisp**. It performs **symbolic differentiation**, simplification, variable binding/substitution, **partial evaluation**, and **expression rewriting** over algebraic expression trees.
+*mini-math* is a lightweight symbolic computation engine written entirely in **Common Lisp**. It performs **symbolic differentiation**, simplification, variable binding/substitution, **partial evaluation**, and **expression rewriting** over algebraic expression trees.
 
 ## Conceptual Foundation
 
-nform is built on the principle that **computation = term rewriting**. Each simplification or differentiation rule is a **directed rewrite**:
+mini-math is built on the principle that **computation = term rewriting**. Each simplification or differentiation rule is a **directed rewrite**:
 ```lisp
 (* x 0) -> 0
 (+ 0 x) -> x
 (^ x 1) -> x
 ```
 
-By abstracting these as declarative `defrule` definitions, nform will evolve into a **term rewriting system (TRS)** - the same conceptual model that underlies theorem provers and symbolic AI systems like **Lean**, **Coq**, and **Mathematica**.
+By abstracting these as declarative `defrule` definitions, mini-math will evolve into a **term rewriting system (TRS)** - the same conceptual model that underlies theorem provers and symbolic AI systems like **Lean**, **Coq**, and **Mathematica**.
 
 ## Overview
 
-nform represents computation as generic term rewriting over algebraic expression trees, which we call *computation trees*. Under the hood, these are simple binary trees. Nodes can take on one of the following types:
+mini-math represents computation as generic term rewriting over algebraic expression trees, which we call *computation trees*. Under the hood, these are simple binary trees. Nodes can take on one of the following types:
 - `atom`: a numeric value
 - `sym`: a symbol, can be a variable such as `x`, or point to a unary function (e.g., `sin`)
 - `op`: binary operators (e.g., `+`, `-`, `*`, `/`, `^`, etc.)
@@ -37,23 +37,23 @@ This structure allows the system to **manipulate algebraic expressions symbolica
 - **Evaluation** via variable substitution,
 - and soon — **general term rewriting** for equational reasoning.
 
-### Why “nform”?
+### Normal Form
 
 In symbolic algebra and logic, a **normal form** is a canonical representation of an expression —  
 a state where no further simplifications or rewrites can be applied.  
 
-Every simplification, differentiation, or substitution in *nform* is a transformation toward this **normal form**.  
-The name reflects the system’s guiding idea:
+Every simplification, differentiation, or substitution in *mini-math* is a transformation toward this **normal form**.  
+So, the system’s guiding ideas are:
 
 > **Computation is normalization.**  
 > Reducing expressions to their essential, irreducible structure.
 
-That principle connects *nform* to the foundations of:
+That principle connects *mini-math* to the foundations of:
 - **λ-calculus**, where β-reduction leads to normal form,  
 - **term rewriting systems**, which formalize algebraic simplification, and  
 - **theorem provers** like *Lean* and *Coq*, which verify proofs by normalizing terms.
 
-*nform* is thus not just a symbolic differentiator — it’s a step toward a general rewriting engine for symbolic reasoning and equational logic.
+*mini-math* is thus not just a symbolic differentiator — it’s a step toward a general rewriting engine for symbolic reasoning and equational logic.
 
 ## Roadmap
 | Milestone                | Description                                                       |
